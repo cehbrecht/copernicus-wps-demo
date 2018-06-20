@@ -4,6 +4,7 @@ from .wps_sleep import Sleep
 from .wps_mydiag import MyDiag
 from .wps_pydemo import PyDemo
 from .wps_perfmetrics import Perfmetrics
+from .wps_rainfarm import RainFarm
 
 processes = [
     WordCounter(),
@@ -12,4 +13,5 @@ processes = [
     MyDiag(),
     PyDemo(),
     Perfmetrics(),
+    RainFarm(),
 ]

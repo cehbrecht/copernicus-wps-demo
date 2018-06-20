@@ -55,11 +55,22 @@ class Perfmetrics(Process):
         super(Perfmetrics, self).__init__(
             self._handler,
             identifier="perfmetrics",
-            title="Model comparison report",
+            title="Performance metrics",
             version=runner.VERSION,
-            abstract="Creates a performance metrics report comparing models using ESMValTool.",
+            abstract="Creates a performance metrics report comparing models using ESMValTool. "
+            " The goal is to create a standard namelist for the calculation of performance metrics to quantify "
+            " the ability of the models to reproduce the climatological mean annual cycle for selected "
+            " Essential Climate Variables (ECVs) plus some additional corresponding diagnostics "
+            " and plots to better understand and interpret the results. "
+            " The namelist can be used to calculate performance metrics at different vertical "
+            " levels (e.g., 5, 30, 200, 850 hPa as in Gleckler et al., 2008) and in four "
+            " regions (global, tropics 20°N-20°S, northern extratropics 20°-90°N, southern extratropics 20°-90°S). "
+            " As an additional reference, we consider the Righi et al. (2015) paper.",
             metadata=[
                 Metadata('ESMValTool', 'http://www.esmvaltool.org/'),
+                Metadata('Diagnostic Description', 'https://raw.githubusercontent.com/c3s-magic/c3s-magic-frontend/master/src/static/diagnosticsdata/perfmetrics/perfmetrics.yml'),  # noqa
+                Metadata('Description', 'https://raw.githubusercontent.com/c3s-magic/c3s-magic-frontend/master/src/static/diagnosticsdata/perfmetrics/description.md'),  # noqa
+                Metadata('Media', 'https://github.com/c3s-magic/c3s-magic-frontend/blob/master/src/static/diagnosticsdata/perfmetrics/Portait.png'),  # noqa
             ],
             inputs=inputs,
             outputs=outputs,
