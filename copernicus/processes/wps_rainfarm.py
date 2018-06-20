@@ -71,7 +71,9 @@ class RainFarm(Process):
             metadata=[
                 Metadata('ESMValTool', 'http://www.esmvaltool.org/'),
                 Metadata('Diagnostic Description', 'https://raw.githubusercontent.com/c3s-magic/c3s-magic-frontend/master/src/static/diagnosticsdata/rainfarm/rainfarm.yml'),  # noqa
-                Metadata('Description', 'https://raw.githubusercontent.com/c3s-magic/c3s-magic-frontend/master/src/static/diagnosticsdata/rainfarm/description.md'),  # noqa
+                Metadata('Description',
+                         'https://raw.githubusercontent.com/c3s-magic/c3s-magic-frontend/master/src/static/diagnosticsdata/rainfarm/description.md',  # noqa
+                         role='http://www.opengis.net/spec/wps/2.0/def/process/description/documentation'),  # noqa
                 Metadata('Media', 'https://github.com/c3s-magic/c3s-magic-frontend/raw/master/src/static/diagnosticsdata/rainfarm/rainfarm_thumbnail.png'),  # noqa
             ],
             inputs=inputs,
@@ -85,7 +87,7 @@ class RainFarm(Process):
         response.update_status("running diag ...", 20)
         # result plot
         response.update_status("collect output plot ...", 90)
-        url = 'https://github.com/c3s-magic/c3s-magic-frontend/raw/master/src/static/diagnosticsdata/rainfarm/RainFARM_example_64x64.png'
+        url = 'https://github.com/c3s-magic/c3s-magic-frontend/raw/master/src/static/diagnosticsdata/rainfarm/RainFARM_example_64x64.png'  # noqa
         resp = requests.get(url, stream=True)
         with open(os.path.join(self.workdir, 'img.png'), 'wb') as out_file:
             shutil.copyfileobj(resp.raw, out_file)
